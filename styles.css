@@ -1,0 +1,40 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #6dcf7a;
+}
+
+header {
+    padding: 1em;
+}
+
+.buttonRow {
+    margin-left: 2em;
+}
+
+.dataBtn {
+    background-color: rgb(111, 201, 231);
+    border-radius: 5px;
+    border-color: transparent;
+    height: 3em;
+}
+
+.dataBtn:hover {
+    background-color: lightblue;
+}
+
+.dataContainer {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 5px;
+    margin: 3em;
+}
+
+.dataContainer p {
+    text-indent: 1em;
+}
+
+.dataContainer h2 {
+    margin-left: 2em;
+}
