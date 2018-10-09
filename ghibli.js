@@ -92,6 +92,7 @@ function routeDisplay(json) {
 }
 
 function displayFilms(data) {
+    console.log(data[0].description);
     data.map(film => {
         let container = document.createElement('div');
         let title = document.createElement('h2');
@@ -101,7 +102,7 @@ function displayFilms(data) {
         let rtScore = document.createElement('p');
 
         title.innerText = film.title;
-        director.innerText = `Director: ${film.director}`;
+        director.innerText = film.director;
         producer.innerText = `Producer: ${film.producer}`;
         releaseDate.innerText = `Released in ${film.release_date}`;
         rtScore.innerText = `RT Score: ${film.rt_score}`;
