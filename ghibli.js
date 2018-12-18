@@ -11,6 +11,7 @@ const peopleBtn = document.getElementById('peopleBtn');
 const locationBtn = document.getElementById('locationBtn');
 const speciesBtn = document.getElementById('speciesBtn');
 const vehiclesBtn = document.getElementById('vehicleBtn');
+const resetBtn = document.getElementById('resetBtn');
 
 const dataDisplay = document.querySelector('ul');
 
@@ -20,6 +21,13 @@ peopleBtn.addEventListener('click', togglePeople);
 locationBtn.addEventListener('click', toggleLocations);
 speciesBtn.addEventListener('click', toggleSpecies);
 vehiclesBtn.addEventListener('click', toggleVehicles);
+resetBtn.addEventListener('click', refreshPage);
+
+function refreshPage(e) {
+    location.reload();
+}
+
+
 
 function toggleFilms() {
     searchType = "/films";
@@ -211,3 +219,4 @@ function displayVehicles(data) {
         dataDisplay.appendChild(container);
     })
 }
+
