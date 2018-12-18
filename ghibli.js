@@ -27,8 +27,6 @@ function refreshPage(e) {
     location.reload();
 }
 
-
-
 function toggleFilms() {
     searchType = "/films";
 }
