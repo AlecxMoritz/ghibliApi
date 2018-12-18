@@ -3,7 +3,6 @@ const limit = 10
 let url = '';
 let searchType = '';
 
-
 const totoro = document.getElementById('totoro');
 const searchTerm = document.getElementById('searchInput');
 const searchForm = document.querySelector('form');
@@ -22,8 +21,6 @@ locationBtn.addEventListener('click', toggleLocations);
 speciesBtn.addEventListener('click', toggleSpecies);
 vehiclesBtn.addEventListener('click', toggleVehicles);
 
-
-// toggle searches
 function toggleFilms() {
     searchType = "/films";
 }
@@ -44,10 +41,8 @@ function toggleVehicles() {
     searchType = "/vehicles";
 }
 
-// search
 function onSubmit(e) {
     e.preventDefault();
-
     totoro.style.display = 'none';
     
     while (dataDisplay.firstChild) {
@@ -55,16 +50,11 @@ function onSubmit(e) {
     }
 
     url = baseURL + searchType
+
     fetch(url)
-        .then(response => {
-            return response.json()
-        })
-        .then(json => {
-            routeDisplay(json);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        .then(response => response.json())
+        .then(json => routeDisplay(json))
+        .catch(err => console.log(err));
 }
 
 function routeDisplay(json) {
@@ -92,7 +82,6 @@ function routeDisplay(json) {
 }
 
 function displayFilms(data) {
-    console.log(data[0].description);
     data.map(film => {
         let container = document.createElement('div');
         let title = document.createElement('h2');
@@ -153,8 +142,19 @@ function displayLocations(data) {
         let surfaceWater = document.createElement('p'); 
 
         name.innerText = location.name;
-        climate.innerText = `Climate: ${location.climate}`;
-        terrain.innerText = `Terrain: ${location.terrain}`;
+
+        if(location.climate == "TODO"){
+            climate.innerText = "Climate: Unavailable";
+        } else {
+            climate.innerText = `Climate: ${location.climate}`;
+        }
+
+        if(location.terrain == "TODO"){
+            terrain.innerText = "Terrain: Unavailable";
+        } else {
+            terrain.innerText = `Terrain: ${location.terrain}`;
+        }
+
         residents.innerText = `Residents: ${location.residents.length}`;
         surfaceWater.innerText = `Surface Water: ${location.surface_water}%`;
 
@@ -165,8 +165,6 @@ function displayLocations(data) {
         container.appendChild(surfaceWater);
         container.classList.add("dataContainer");
         dataDisplay.appendChild(container);
-
-
     })
 }
 
@@ -193,7 +191,6 @@ function displaySpecies(data) {
 }
 
 function displayVehicles(data) {
-    console.log(data[0])
     data.map(vehicle => {
         let container = document.createElement('div');
         let name = document.createElement('h2');
